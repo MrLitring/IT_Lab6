@@ -70,7 +70,7 @@
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.dataGridView3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 147);
+            this.panel3.Location = new System.Drawing.Point(0, 60);
             this.panel3.MaximumSize = new System.Drawing.Size(0, 350);
             this.panel3.MinimumSize = new System.Drawing.Size(0, 30);
             this.panel3.Name = "panel3";
@@ -125,11 +125,11 @@
             this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(244)))));
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(114, 18);
+            this.button4.Location = new System.Drawing.Point(114, 25);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 30);
+            this.button4.Size = new System.Drawing.Size(187, 23);
             this.button4.TabIndex = 7;
-            this.button4.Text = "button4";
+            this.button4.Text = "Расчет";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -140,7 +140,6 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(298, 248);
             this.dataGridView3.TabIndex = 6;
-            this.dataGridView3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dataGridView3_KeyPress);
             // 
             // panel1
             // 
@@ -152,7 +151,7 @@
             this.panel1.MaximumSize = new System.Drawing.Size(0, 350);
             this.panel1.MinimumSize = new System.Drawing.Size(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(304, 117);
+            this.panel1.Size = new System.Drawing.Size(304, 30);
             this.panel1.TabIndex = 8;
             // 
             // button1
@@ -163,7 +162,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(244)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 87);
+            this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(304, 30);
             this.button1.TabIndex = 4;
@@ -212,6 +211,11 @@
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(225, 35);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.numericUpDown2.Minimum = new decimal(new int[] {
             1,
             0,
@@ -241,6 +245,11 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(225, 7);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.numericUpDown1.Minimum = new decimal(new int[] {
             1,
             0,
@@ -295,7 +304,7 @@
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.dataGridView2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 117);
+            this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.MaximumSize = new System.Drawing.Size(0, 350);
             this.panel2.MinimumSize = new System.Drawing.Size(0, 30);
             this.panel2.Name = "panel2";
@@ -331,7 +340,7 @@
             // label3
             // 
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(111, 17);
+            this.label3.Location = new System.Drawing.Point(140, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 26);
             this.label3.TabIndex = 5;
@@ -340,7 +349,12 @@
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(196, 17);
+            this.numericUpDown3.Location = new System.Drawing.Point(225, 20);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             this.numericUpDown3.Minimum = new decimal(new int[] {
             1,
             0,
@@ -363,13 +377,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(29)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(304, 461);
+            this.ClientSize = new System.Drawing.Size(304, 421);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(400, 460);
+            this.MinimumSize = new System.Drawing.Size(320, 460);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

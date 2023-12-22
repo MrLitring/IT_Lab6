@@ -49,13 +49,13 @@ namespace WindowsFormsApp6
             dataGridView2.RowCount = 1;
 
 
-            dataGridView1.KeyPress += (s, e) =>
+            dataGridView1.CellValueChanged += (s, e) =>
             {
-                //cellChange(s, e);
+                CellChangeValue(s, e);
             };
-            dataGridView2.KeyPress += (s, e) =>
+            dataGridView2.CellValueChanged += (s, e) =>
             {
-                //cellChange(s, e);
+                CellChangeValue(s, e);
             };
         }
 
@@ -67,11 +67,12 @@ namespace WindowsFormsApp6
                 for (int j = 0; j < dataElem.Columns.Count; j++)
                 {
                     try
-                    { if (dataElem[i, j].Value == null) return false;
+                    {
+                        if (dataElem[i, j].Value == null) return false;
                         else if (dataElem[i, j].Value.ToString() == " ") return false;
                     }
                     catch { }
-                    }
+                }
             }
 
             return true;
@@ -151,17 +152,25 @@ namespace WindowsFormsApp6
             dataGridView3.ColumnCount = (int)numericUpDown3.Value;
             dataGridView3.RowCount = (int)numericUpDown2.Value;
 
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            dataGridView3.RowCount = (int)(dataGridView1.Rows.Count);
+            dataGridView3.ColumnCount = (int)(dataGridView2.Columns.Count);
+
+            for (int i = 0; i < dataGridView3.Rows.Count; i++)
             {
-                for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                for (int j = 0; j < dataGridView3.Columns.Count; j++)
                 {
-                    for (int k = 0; k < dataGridView1.ColumnCount; k++)
+
+                    double x = 0;
+                    for (int k = 0; k < dataGridView1.Columns.Count; k++)
                     {
-                        dataGridView3[i, j].Value = int.Parse(dataGridView1[i, k].Value.ToString()) * int.Parse(dataGridView2[k, j].Value.ToString());
+                        double c = Convert.ToDouble(dataGridView1.Rows[i].Cells[k].Value);
+                        double v = Convert.ToDouble(dataGridView2.Rows[k].Cells[j].Value);
+                        x += c * v;
+
                     }
+                    dataGridView3.Rows[i].Cells[j].Value = x;
 
                 }
-
             }
 
         }
@@ -174,8 +183,27 @@ namespace WindowsFormsApp6
                 MessageBox.Show("Заполните все матрицы", "Owubka");
         }
 
-        private void dataGridView3_KeyPress(object sender, KeyPressEventArgs e)
+        private void CellChangeValue(object sender, DataGridViewCellEventArgs e)
         {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+
+                    string s = Convert.ToString(dataGridView1.Rows[i].Cells[j].Value);
+                    string num = ".0123456789";
+                    foreach (char n in s)
+                    {
+                        if (!num.Contains(n))
+                        {
+                            dataGridView1.Rows[i].Cells[j].Value = "";
+                            MessageBox.Show("Введите положительное число", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                }
+            }
 
         }
     }
