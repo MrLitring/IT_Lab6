@@ -68,10 +68,13 @@ namespace WindowsFormsApp6
                 {
                     try
                     {
-                        if (dataElem[i, j].Value == null) return false;
-                        else if (dataElem[i, j].Value.ToString() == " ") return false;
+                        if (dataElem[j, i].Value == null) return false;
+                        else if (dataElem[j, i].Value.ToString() == " " || dataElem[j, i].Value.ToString() == "") return false;
                     }
-                    catch { }
+                    catch
+                    {
+                        return false;
+                    }
                 }
             }
 
@@ -96,6 +99,21 @@ namespace WindowsFormsApp6
                 dataGridView2.ColumnCount = (int)numericUpDown3.Value;
             }
         }
+
+        private void DataUpdate(int i)
+        {
+            if (i == 1)
+            {
+                dataGridView1.ColumnCount = (int)numericUpDown1.Value;
+                dataGridView1.RowCount = (int)numericUpDown2.Value;
+            }
+            else if (i == 2)
+            {
+                dataGridView2.ColumnCount = (int)numericUpDown3.Value;
+                dataGridView2.RowCount = (int)numericUpDown2.Value;
+            }
+        }
+
 
         private void PanelShow_UnShow(object sender, EventArgs e)
         {
@@ -135,10 +153,12 @@ namespace WindowsFormsApp6
             if ((sender as Button).Name == "button5")
             {
                 dataGridView1.Rows.Clear();
+                DataUpdate(1);
             }
             if ((sender as Button).Name == "button6")
             {
                 dataGridView2.Rows.Clear();
+                DataUpdate(2);
             }
             if ((sender as Button).Name == "button7")
             {
@@ -149,9 +169,6 @@ namespace WindowsFormsApp6
 
         private void CalculateAndShow()
         {
-            dataGridView3.ColumnCount = (int)numericUpDown3.Value;
-            dataGridView3.RowCount = (int)numericUpDown2.Value;
-
             dataGridView3.RowCount = (int)(dataGridView1.Rows.Count);
             dataGridView3.ColumnCount = (int)(dataGridView2.Columns.Count);
 
